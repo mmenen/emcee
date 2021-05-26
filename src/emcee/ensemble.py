@@ -253,14 +253,14 @@ class EnsembleSampler(object):
         state = State(initial_state, copy=True)
         if np.shape(state.coords) != (self.nwalkers, self.ndim):
             raise ValueError("incompatible input dimensions")
-        if (not skip_initial_state_check) and (
-            not walkers_independent(state.coords)
-        ):
-            raise ValueError(
-                "Initial state has a large condition number. "
-                "Make sure that your walkers are linearly independent for the "
-                "best performance"
-            )
+        #if (not skip_initial_state_check) and (
+        #    not walkers_independent(state.coords)
+        #):
+        #    raise ValueError(
+        #        "Initial state has a large condition number. "
+        #        "Make sure that your walkers are linearly independent for the "
+        #        "best performance"
+        #    )
 
         # Try to set the initial value of the random number generator. This
         # fails silently if it doesn't work but that's what we want because
