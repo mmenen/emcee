@@ -87,7 +87,11 @@ class RedBlueMove(Move):
             c = sets[:split] + sets[split + 1 :]
 
             # Get the move-specific proposal.
-            q, factors = self.get_proposal(s, c, model.random)
+            q, factors, spos, cpos, zz = self.get_proposal(s, c, model.random)
+            print("Position of Walkers: ", spos)
+            print("Reference positions: ", cpos)
+            print("Chosen z: ", zz)
+            print("Proposed points: ", q)
 
             # Compute the lnprobs of the proposed position.
             new_log_probs, new_blobs = model.compute_log_prob_fn(q)
@@ -97,6 +101,9 @@ class RedBlueMove(Move):
                 zip(all_inds[S1], factors, new_log_probs)
             ):
                 lnpdiff = f + nlp - state.log_prob[j]
+                print("Factor from z: ", f)
+                print("Log-prob new position: ", nlp)
+                print("Log-prob old position: ", state.log_prob[j])
                 if lnpdiff > np.log(model.random.rand()):
                     accepted[j] = True
 
