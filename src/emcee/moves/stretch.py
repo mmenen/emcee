@@ -30,4 +30,4 @@ class StretchMove(RedBlueMove):
         zz = ((self.a - 1.0) * random.rand(Ns) + 1) ** 2.0 / self.a
         factors = (ndim - 1.0) * np.log(zz)
         rint = random.randint(Nc, size=(Ns,))
-        return c[rint] - (c[rint] - s) * zz[:, None], factors
+        return c[rint] - (c[rint] - s) * zz[:, None], factors, s, c[rint]
