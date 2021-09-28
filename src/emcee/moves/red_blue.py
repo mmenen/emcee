@@ -62,12 +62,12 @@ class RedBlueMove(Move):
         """
         # Check that the dimensions are compatible.
         nwalkers, ndim = state.coords.shape
-        if nwalkers < 2 * ndim and not self.live_dangerously:
-            raise RuntimeError(
-                "It is unadvisable to use a red-blue move "
-                "with fewer walkers than twice the number of "
-                "dimensions."
-            )
+        #if nwalkers < 2 * ndim and not self.live_dangerously:
+        #    raise RuntimeError(
+        #        "It is unadvisable to use a red-blue move "
+        #        "with fewer walkers than twice the number of "
+        #        "dimensions."
+        #    )
 
         # Run any move-specific setup.
         self.setup(state.coords)
