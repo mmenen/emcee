@@ -345,6 +345,7 @@ class EnsembleSampler(object):
 
                     # Propose
                     state, accepted = move.propose(model, state)
+                    print(accepted)
                     state.random_state = self.random_state
 
                     if tune:
